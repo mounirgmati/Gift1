@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عيدكم مبارك</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #5e8784, #81a98d, #b3cba1, #ffffc4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .image {
+      width: 220px;
+      max-width: 80%;
+      cursor: pointer;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .message {
+      font-size: 28px;
+      margin-top: 20px;
+      color: #2d3c3a;
+      background-color: #ffffffdd;
+      padding: 15px 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 600px) {
+      .message {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- صورة الهدية -->
+  <img
+    src="gift.png"
+    alt="هدية"
+    id="gift"
+    class="image"
+  >
+
+  <!-- محتوى العيد -->
+  <div id="eidContent" class="hidden">
+    <img
+      src="sheep.png"
+      alt="خروف العيد"
+      class="image"
+    >
+    <div class="message">✨🐑 عيدكم مبارك وكل عام وأنتم بخير! 🌙🎉</div>
+  </div>
+
+  <script>
+    const gift = document.getElementById('gift');
+    const eidContent = document.getElementById('eidContent');
+
+    gift.addEventListener('click', () => {
+      gift.classList.add('hidden');
+      eidContent.classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>
