@@ -1,87 +1,84 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>عيدكم مبارك</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #5e8784, #81a98d, #b3cba1, #ffffc4);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .image {
-      width: 220px;
-      max-width: 80%;
-      cursor: pointer;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .image:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .message {
-      font-size: 28px;
-      margin-top: 20px;
-      color: #2d3c3a;
-      background-color: #ffffffdd;
-      padding: 15px 25px;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    @media (max-width: 600px) {
-      .message {
-        font-size: 22px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد أضحى مبارك</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5e8c0;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.5s ease;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .gift {
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 50px auto;
+        }
+        
+        .gift:hover {
+            transform: scale(1.1);
+        }
+        
+        .sheep {
+            width: 300px;
+            max-width: 90%;
+            display: none;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .greeting {
+            font-size: 36px;
+            color: #8b4513;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="هدية" class="gift" id="gift">
+        
+        <img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.agribenchmark.org%2Fagri-benchmark%2Fdid-you-know%2Feinzelansicht%2Fartikel%2F%2Fislamic-holi.html&psig=AOvVaw1aLzEbTKlqdQwhf-quSicr&ust=1749162649475000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJCkgeLo2I0DFQAAAAAdAAAAABAE" alt="خروف" class="sheep" id="sheep">
+        
+        <div class="greeting" id="greeting">عيد أضحى مبارك</div>
+    </div>
 
-  <!-- صورة الهدية -->
-  <img
-    src="https://images.app.goo.gl/gXhPz"
-    alt="هدية"
-    id="gift"
-    class="image"
-  >
-
-  <!-- محتوى العيد -->
-  <div id="eidContent" class="hidden">
-    <img
-      src="https://images.app.goo.gl/kjjko"
-      alt="خروف العيد"
-      class="image"
-    >
-    <div class="message">🐑 عيدكم مبارك وكل عام وأنتم بخير! 🌙🎉</div>
-  </div>
-
-  <script>
-    const gift = document.getElementById('gift');
-    const eidContent = document.getElementById('eidContent');
-
-    gift.addEventListener('click', () => {
-      gift.classList.add('hidden');
-      eidContent.classList.remove('hidden');
-    });
-  </script>
-
+    <script>
+        document.getElementById('gift').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('sheep').style.display = 'block';
+            document.getElementById('greeting').style.display = 'block';
+            
+            // تغيير لون الخلفية
+            document.body.style.background = "linear-gradient(to bottom, #f5e8c0, #e8c9a0)";
+            
+            // إضافة تأثير اهتزاز بسيط للتهنئة
+            const greeting = document.getElementById('greeting');
+            greeting.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                greeting.style.animation = '';
+            }, 500);
+        });
+    </script>
 </body>
 </html>
