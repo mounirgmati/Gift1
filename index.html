@@ -16,16 +16,42 @@
             transition: all 0.5s ease;
             overflow: hidden;
             font-family: 'Arial', sans-serif;
+            position: relative;
+        }
+        
+        .gift-container {
+            position: relative;
+            display: inline-block;
+            margin-top: 80px; /* لإفساح مجال للسهم */
         }
         
         #gift {
             width: 200px;
             cursor: pointer;
             transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
         }
         
         #gift:hover {
             transform: scale(1.1);
+        }
+        
+        .arrow {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            font-size: 40px;
+            color: #8b4513;
+            animation: bounce 1.5s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-15px);}
+            60% {transform: translateX(-50%) translateY(-7px);}
         }
         
         .eid-card {
@@ -42,6 +68,7 @@
             text-align: center;
             padding: 20px;
             box-sizing: border-box;
+            z-index: 3;
         }
         
         .eid-title {
@@ -78,7 +105,10 @@
     </style>
 </head>
 <body>
-    <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="هدية" id="gift">
+    <div class="gift-container">
+        <div class="arrow">↓</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="هدية" id="gift">
+    </div>
     
     <div class="eid-card" id="eidCard">
         <div class="eid-border"></div>
@@ -90,6 +120,7 @@
     <script>
         document.getElementById('gift').addEventListener('click', function() {
             this.style.display = 'none';
+            document.querySelector('.arrow').style.display = 'none';
             document.getElementById('eidCard').style.display = 'flex';
             document.body.style.background = 'transparent';
         });
