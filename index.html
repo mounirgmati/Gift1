@@ -6,78 +6,99 @@
     <title>عيد أضحى مبارك</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5e8c0;
-            text-align: center;
-            padding: 20px;
             margin: 0;
+            padding: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            transition: background 0.5s ease;
+            height: 100vh;
+            background-color: #f5e8c0;
+            transition: all 0.5s ease;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .gift {
+        #gift {
             width: 200px;
             cursor: pointer;
             transition: transform 0.3s;
-            margin: 50px auto;
         }
         
-        .gift:hover {
+        #gift:hover {
             transform: scale(1.1);
         }
         
-        .sheep {
-            width: 300px;
-            max-width: 90%;
+        .eid-card {
             display: none;
-            margin: 20px auto;
-            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #f5e8c0, #e8c9a0);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .eid-title {
+            font-size: 3rem;
+            color: #8b4513;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .eid-sheep {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
-        .greeting {
-            font-size: 36px;
-            color: #8b4513;
-            font-weight: bold;
-            margin-top: 20px;
-            display: none;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        .eid-sheep:before {
+            content: "🐑";
+            font-size: 100px;
+        }
+        
+        .eid-message {
+            font-size: 1.5rem;
+            color: #a52a2a;
+            line-height: 1.6;
+        }
+        
+        .eid-border {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border: 2px dashed #8b4513;
+            border-radius: 15px;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="هدية" class="gift" id="gift">
-        
-        <img src="https://cdn.pixabay.com/photo/2016/11/13/21/46/sheep-1822137_1280.jpg" alt="خروف" class="sheep" id="sheep">
-        
-        <div class="greeting" id="greeting">عيد أضحى مبارك.<br>العيد هو يوم فرح وسرور شرع للمسلمين لإتمام فريضة فرضها الله عليهم فافرحوا يا مسلمين و لا تحزنوا </div>
+    <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="هدية" id="gift">
+    
+    <div class="eid-card" id="eidCard">
+        <div class="eid-border"></div>
+        <h1 class="eid-title">عيد أضحى مبارك</h1>
+        <div class="eid-sheep"></div>
+        <p class="eid-message">كل عام وأنتم بخير<br>تقبل الله طاعاتكم</p>
     </div>
 
     <script>
         document.getElementById('gift').addEventListener('click', function() {
             this.style.display = 'none';
-            document.getElementById('sheep').style.display = 'block';
-            document.getElementById('greeting').style.display = 'block';
-            
-            // تغيير لون الخلفية
-            document.body.style.background = "linear-gradient(to bottom, #f5e8c0, #e8c9a0)";
-            
-            // إضافة تأثير اهتزاز بسيط للتهنئة
-            const greeting = document.getElementById('greeting');
-            greeting.style.animation = 'shake 0.5s';
-            setTimeout(() => {
-                greeting.style.animation = '';
-            }, 500);
+            document.getElementById('eidCard').style.display = 'flex';
+            document.body.style.background = 'transparent';
         });
     </script>
 </body>
